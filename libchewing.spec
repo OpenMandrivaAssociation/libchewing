@@ -15,6 +15,7 @@ Group:		System/Internationalization
 License:	GPL
 Source0:	http://chewing.csie.net/download/libchewing/%{name}-%{version}.tar.bz2
 URL:		http://chewing.csie.net/
+Buildroot:      %_tmppath/%{name}-%{version}-%{release}-root
 
 %description
 libchewing is an intelligent Chinese phonetic input method library
