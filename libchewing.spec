@@ -1,5 +1,5 @@
 %define version 0.3.091
-%define release %mkrel 2
+%define release %mkrel 3
 
 %define libname %mklibname chewing 3
 
