@@ -16,6 +16,7 @@ Group:		System/Internationalization
 License:	LGPLv2+
 Source0:	http://chewing.csie.net/download/libchewing/%{name}-%{version}-r%{svnrel}.tar.bz2
 URL:		http://chewing.csie.net/
+BuildRequires:	check-devel
 Buildroot:      %_tmppath/%{name}-%{version}-%{release}-root
 
 %description
