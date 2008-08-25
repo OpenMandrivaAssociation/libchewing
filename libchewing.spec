@@ -1,6 +1,6 @@
 %define version 0.3.091
 %define svnrel 836
-%define release %mkrel 3.%{svnrel}.1
+%define release %mkrel 3.%{svnrel}.2
 
 %define libname %mklibname chewing 3
 %define develname %mklibname chewing -d
