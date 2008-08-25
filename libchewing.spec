@@ -1,12 +1,9 @@
 %define version 0.3.091
-%define svnrel 830
+%define svnrel 836
 %define release %mkrel 3.%{svnrel}.1
 
 %define libname %mklibname chewing 3
-
-%if %mdkversion < 1010
-%define __libtoolize /bin/true
-%endif
+%define develname %mklibname chewing -d
 
 Name:		libchewing
 Summary:	The intelligent phonetic input method library
@@ -46,13 +43,14 @@ which is also know as Qooing. Based on Chewing input method.
 
 This package contains the basic libchewing library.
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Headers of libchewing for development
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%mklibname -d chewing 3
 
-%description -n %{libname}-devel
+%description -n %{develname}
 libchewing is an intelligent Chinese phonetic input method library
 which is also know as Qooing. Based on Chewing input method.
 
@@ -92,9 +90,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %{libname}
 %defattr(-,root,root)
 %doc COPYING
-%{_libdir}/lib*.so.*
+%{_libdir}/lib*.so.3*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog NEWS README
 %{_libdir}/lib*.so
