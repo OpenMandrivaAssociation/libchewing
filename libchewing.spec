@@ -5,6 +5,7 @@
 
 Name:		libchewing
 Summary:	The intelligent phonetic input method library
+Epoch:		1
 Version:	%{version}
 Release:	%mkrel 1
 Group:		System/Internationalization
@@ -32,8 +33,8 @@ This package contains data files from libchewing.
 %package -n	%{libname}
 Summary:	The intelligent phonetic input method library
 Group:		System/Internationalization
-Requires:       %{name}-data = %{version}
-Provides:	%{name} = %{version}-%{release}
+Requires:       %{name}-data = %{epoch}:%{version}
+Provides:	%{name} = %{epoch}:%{version}-%{release}
 
 %description -n %{libname}
 libchewing is an intelligent Chinese phonetic input method library
