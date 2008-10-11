@@ -1,6 +1,4 @@
-%define version 0.3.091
-%define svnrel 836
-%define release %mkrel 3.%{svnrel}.2
+%define version 0.3.1
 
 %define libname %mklibname chewing 3
 %define develname %mklibname chewing -d
@@ -8,18 +6,18 @@
 Name:		libchewing
 Summary:	The intelligent phonetic input method library
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 1
 Group:		System/Internationalization
 License:	LGPLv2+
-Source0:	http://chewing.csie.net/download/libchewing/%{name}-%{version}-r%{svnrel}.tar.bz2
+Source0:	http://chewing.csie.net/download/libchewing/%{name}-%{version}.tar.bz2
 URL:		http://chewing.csie.net/
 BuildRequires:	check-devel
+BuildRequires:	libtool
 Buildroot:      %_tmppath/%{name}-%{version}-%{release}-root
 
 %description
 libchewing is an intelligent Chinese phonetic input method library
 which is also know as Qooing. Based on Chewing input method.
-
 
 %package data
 Summary:	Data for Libchewing
@@ -58,18 +56,17 @@ This package contains library and headers necessary for development
 related to Chewing input method. You also need it if you want to
 compile any input server that supports Chewing input method.
 
-
 %prep
-%setup -q -n %name
+%setup -q -n %name-%version
 
 %build
 ./autogen.sh
 %configure2_5x 
-%make
+%make LIBTOOL=%_bindir/libtool
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall_std
+%makeinstall_std LIBTOOL=%_bindir/libtool
 
 %clean
 rm -rf $RPM_BUILD_ROOT
