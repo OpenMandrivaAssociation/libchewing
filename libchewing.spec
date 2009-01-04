@@ -1,6 +1,6 @@
-%define version 0.3.1
-
-%define libname %mklibname chewing 3
+%define version 0.3.2
+%define major	3
+%define libname %mklibname chewing %{major}
 %define develname %mklibname chewing -d
 
 Name:		libchewing
@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %{libname}
 %defattr(-,root,root)
 %doc COPYING
-%{_libdir}/lib*.so.3*
+%{_libdir}/lib*.so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root)
