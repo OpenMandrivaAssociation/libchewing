@@ -7,7 +7,7 @@ Name:		libchewing
 Summary:	The intelligent phonetic input method library
 Epoch:		1
 Version:	%{version}
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		System/Internationalization
 License:	LGPLv2+
 Source0:	http://chewing.csie.net/download/libchewing/%{name}-%{version}.tar.bz2
