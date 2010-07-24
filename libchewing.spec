@@ -7,13 +7,11 @@ Name:		libchewing
 Summary:	The intelligent phonetic input method library
 Epoch:		1
 Version:	%{version}
-Release:	%mkrel 3
+Release:	%mkrel 4.svn1051.1
 Group:		System/Internationalization
 License:	LGPLv2+
 Source0:	http://chewing.csie.net/download/libchewing/%{name}-%{version}.tar.bz2
 URL:		http://chewing.csie.net/
-BuildRequires:	check-devel
-BuildRequires:	libtool
 Buildroot:      %_tmppath/%{name}-%{version}-%{release}-root
 
 %description
@@ -63,11 +61,11 @@ compile any input server that supports Chewing input method.
 %build
 ./autogen.sh
 %configure2_5x 
-%make LIBTOOL=%_bindir/libtool
+%make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall_std LIBTOOL=%_bindir/libtool
+%makeinstall_std
 
 %clean
 rm -rf $RPM_BUILD_ROOT
