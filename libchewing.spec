@@ -1,4 +1,4 @@
-%define version 0.3.2
+%define version 0.3.3
 %define major	3
 %define libname %mklibname chewing %{major}
 %define develname %mklibname chewing -d
@@ -7,7 +7,7 @@ Name:		libchewing
 Summary:	The intelligent phonetic input method library
 Epoch:		1
 Version:	%{version}
-Release:	%mkrel 4.svn1051.1
+Release:	%mkrel 1
 Group:		System/Internationalization
 License:	LGPLv2+
 Source0:	http://chewing.csie.net/download/libchewing/%{name}-%{version}.tar.bz2
@@ -59,7 +59,6 @@ compile any input server that supports Chewing input method.
 %setup -q -n %name-%version
 
 %build
-./autogen.sh
 %configure2_5x 
 %make
 
