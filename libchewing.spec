@@ -5,12 +5,12 @@
 Summary:	The intelligent phonetic input method library
 Name:		libchewing
 Epoch:		1
-Version:	0.3.3
-Release:	3
+Version:	0.3.5
+Release:	1
 Group:		System/Internationalization
 License:	LGPLv2+
 Url:		http://chewing.csie.net/
-Source0:	http://chewing.csie.net/download/libchewing/%{name}-%{version}.tar.bz2
+Source0:	http://chewing.googlecode.com/files/%{name}-%{version}.tar.bz2
 
 %description
 libchewing is an intelligent Chinese phonetic input method library
@@ -71,4 +71,5 @@ compile any input server that supports Chewing input method.
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
 %{_includedir}/*
+
 
