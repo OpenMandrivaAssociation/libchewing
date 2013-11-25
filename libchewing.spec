@@ -62,6 +62,16 @@ compile any input server that supports Chewing input method.
 %files data
 %doc COPYING
 %{_datadir}/chewing
+%{_libdir}/libchewing/ch_index_begin.dat
+%{_libdir}/libchewing/ch_index_phone.dat
+%{_libdir}/libchewing/dict.dat
+%{_libdir}/libchewing/fonetree.dat
+%{_libdir}/libchewing/ph_index.dat
+%{_libdir}/libchewing/pinyin.tab
+%{_libdir}/libchewing/swkb.dat
+%{_libdir}/libchewing/symbols.dat
+%{_libdir}/libchewing/us_freq.dat
+%{_infodir}/libchewing.info.xz
 
 %files -n %{libname}
 %{_libdir}/libchewing.so.%{major}*
