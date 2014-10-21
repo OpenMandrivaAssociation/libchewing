@@ -64,7 +64,7 @@ compile any input server that supports Chewing input method.
 
 %files data
 %doc COPYING
-%{_libdir}/libchewing
+# %{_libdir}/libchewing
 %{_infodir}/*
 %{_datadir}/libchewing/dictionary.dat
 %{_datadir}/libchewing/index_tree.dat
