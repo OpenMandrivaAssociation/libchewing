@@ -1,4 +1,5 @@
 removed_sources:
   libchewing-0.3.3.tar.bz2: 24ade7bbb0288f71588bb45831d7fc9d5137a4cb
-sources:
   libchewing-0.3.5.tar.bz2: 5ee3941f0f62fa14fbda53e1032970b04a7a88b7
+sources:
+  libchewing-0.4.0.tar.bz2: 7409b0a6753e14510c96574714dcec86c7b10138
