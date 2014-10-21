@@ -72,7 +72,7 @@ compile any input server that supports Chewing input method.
 %{_libdir}/lib*.so.%{major}*
 
 %files -n %{develname}
-%doc AUTHORS COPYING ChangeLog NEWS README
+%doc AUTHORS COPYING ChangeLog NEWS 
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
 %{_includedir}/*
