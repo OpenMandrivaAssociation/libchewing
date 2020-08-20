@@ -17,6 +17,7 @@ BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	texinfo
+BuildRequires:	info
 
 %description
 Phonetic input method library for Chinese
