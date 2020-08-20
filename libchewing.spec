@@ -12,8 +12,11 @@ Url:		http://chewing.im/
 Source0:	https://github.com/chewing/libchewing/archive/v%{version}.tar.gz
 Requires:	%{libname} = %{EVRD}
 BuildRequires:	pkgconfig(sqlite3)
+BuildRequires:	pkgconfig(ncursesw)
+BuildRequires:	pkgconfig(ncurses)
 BuildRequires:	cmake
 BuildRequires:	ninja
+BuildRequires:	texinfo
 
 %description
 Phonetic input method library for Chinese
