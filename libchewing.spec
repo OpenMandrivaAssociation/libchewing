@@ -1,83 +1,60 @@
-%define major 3
+%define major	3
 %define libname %mklibname chewing %{major}
-%define develname %mklibname chewing -d
+%define devname %mklibname chewing -d
 
+Summary:	Intelligent phonetic input method library
 Name:		libchewing
-Summary:	The intelligent phonetic input method library
-Epoch:		1
-Version:	0.4.0
-Release:	4
-Group:		System/Internationalization
-License:	LGPLv2+
-Source0:	https://github.com/chewing/libchewing/releases/download/v0.4.0/%{name}-%{version}.tar.bz2
-URL:		http://chewing.csie.net/
+Version:	0.5.1
+Release:	1
+License:	GPLv2
+Group:		System/Libraries
+Url:		http://chewing.im/
+Source0:	https://github.com/chewing/libchewing/archive/v%{version}.tar.gz
+Requires:	%{libname} = %{EVRD}
+BuildRequires:	pkgconfig(sqlite3)
+BuildRequires:	cmake
+BuildRequires:	ninja
 
 %description
-libchewing is an intelligent Chinese phonetic input method library
-which is also know as Qooing. Based on Chewing input method.
+Phonetic input method library for Chinese
 
-%package data
-Summary:	Data for Libchewing
-Group:		System/Internationalization
-
-%description data
-libchewing is an intelligent Chinese phonetic input method library
-which is also know as Qooing. Based on Chewing input method.
-
-This package contains data files from libchewing.
-
-%package -n	%{libname}
-Summary:	The intelligent phonetic input method library
-Group:		System/Internationalization
-Requires:	%{name}-data = %{EVRD}
-Provides:	%{name} = %{EVRD}
+%package -n %{libname}
+Summary:	Phonetic input method library for Chinese
+Group:		System/Libraries
+Requires:	%{name} = %{EVRD}
 
 %description -n %{libname}
-libchewing is an intelligent Chinese phonetic input method library
-which is also know as Qooing. Based on Chewing input method.
+Phonetic input method library for Chinese
 
-This package contains the basic libchewing library.
-
-%package -n	%{develname}
-Summary:	Headers of libchewing for development
+%package -n %{devname}
+Summary:	Development files for %{name}
 Group:		Development/C
 Requires:	%{libname} = %{EVRD}
-Provides:	%{name}-devel= %{EVRD}
 
-%description -n %{develname}
-libchewing is an intelligent Chinese phonetic input method library
-which is also know as Qooing. Based on Chewing input method.
-
-This package contains library and headers necessary for development
-related to Chewing input method. You also need it if you want to
-compile any input server that supports Chewing input method.
+%description -n %{devname}
+Development files (Headers etc.) for %{name}.
 
 %prep
-%setup -q
+%autosetup -p1
+%cmake -G Ninja
 
 %build
-%configure2_5x --disable-static
-%make
+%ninja_build -C build
 
 %install
-%makeinstall_std
+%ninja_install -C build
 
-%files data
-%doc COPYING
-# %{_libdir}/libchewing
-%{_infodir}/*
-%{_datadir}/libchewing/dictionary.dat
-%{_datadir}/libchewing/index_tree.dat
-%{_datadir}/libchewing/pinyin.tab
-%{_datadir}/libchewing/swkb.dat
-%{_datadir}/libchewing/symbols.dat
+# No need to package static libs
+rm -f %{buildroot}%{_libdir}/*.a
+
+%files
+%{_datadir}/libchewing
 
 %files -n %{libname}
-%doc COPYING
-%{_libdir}/lib*.so.%{major}*
+%{_libdir}/libchewing.so.%{major}*
 
-%files -n %{develname}
-%doc AUTHORS COPYING ChangeLog NEWS 
-%{_libdir}/lib*.so
-%{_libdir}/pkgconfig/*
-%{_includedir}/*
+%files -n %{devname}
+%{_libdir}/libchewing.so
+%{_libdir}/pkgconfig/chewing.pc
+%{_infodir}/libchewing.info*
+%{_includedir}/chewing
