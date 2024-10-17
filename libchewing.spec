@@ -8,7 +8,7 @@ Version:	0.5.1
 Release:	2
 License:	GPLv2
 Group:		System/Libraries
-Url:		http://chewing.im/
+Url:		https://chewing.im/
 Source0:	https://github.com/chewing/libchewing/archive/v%{version}.tar.gz
 Requires:	%{libname} = %{EVRD}
 BuildRequires:	pkgconfig(sqlite3)
